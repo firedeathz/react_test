@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   render() {
-	const { avatar_url, name, url, bio, location } = this.state.user;
+	const { avatar_url, name, url, location } = this.state.user;
   
     return (
       <div className="App">
@@ -46,9 +46,10 @@ class App extends Component {
 					</button>
 				</div>
 			</div>
-			: null
+			: 
+	        <UserInformation avatar_url={avatar_url} name={name} url={url} location={location} />
 		}
-        <UserInformation avatar={avatar_url} name={name} url={url} bio={bio} location={location} />
+
       </div>
     );
   }
