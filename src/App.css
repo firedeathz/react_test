@@ -19,13 +19,61 @@
 }
 
 .User {
-	margin-top: 10px;
-	color: orange;
+	float:left;
+}
+
+.UserInfo {
+	float: left;
+	text-align: left
 }
 
 .UserAvatar {
-	width: 50px;
-	height: 50px;
+	margin:20px;
+	float: left;
+}
+
+.UserAvatar > img {
+	border: 5px solid #000;
+	border-radius: 25px;
+}
+
+.UserInfoTitle {
+	width: 20%;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: left;
+	background-color: #ddd;
+	border-left: 10px solid green;
+	padding-left: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.ReposTitle {
+	width: 20%;
+	background-color: #ddd;
+	border-left: 10px solid green;
+	padding-left: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.UserRepos {
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: left;
+	float: left;
+}
+
+.Repo {
+	width: 50%;
+	text-align: left;
+	float: left;
+	background-color: #ddd;
+	border: 2px solid #aaa;
+	border-radius: 5px;
+	margin: 5px 10px 5px 0;
+	padding-left: 10px;
 }
 
 @keyframes App-logo-spin {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import UserInformation from './UserInformation';
+import UserRepo from './UserRepo';
 
 class App extends Component {
 
@@ -9,11 +10,12 @@ class App extends Component {
     super(props);
     this.state = { 
 		user: {},
+		repos: [],
 		showIntro: true
 	}
   }
-
-  getUserInformation(user) {
+  
+  getUserInformation() {
     fetch(`https://api.github.com/users/firedeathz`)
       .then(data => data.json())
       .then(data => {
@@ -21,7 +23,18 @@ class App extends Component {
           user: data,
 		  showIntro: false
         })
-	})
+	  })
+	fetch(`https://api.github.com/users/firedeathz/repos`)
+	  .then(data => data.json())
+	  .then(data => {
+	    this.setState({
+		  repos: data
+	    })
+	  })
+  }
+  
+  getUserRepos() {
+
   }
 
   render() {
@@ -47,7 +60,25 @@ class App extends Component {
 				</div>
 			</div>
 			: 
-	        <UserInformation avatar_url={avatar_url} name={name} url={url} location={location} />
+	        <div>
+				<div className="UserInfoTitle">
+					<h1>User Information</h1>
+				</div>
+				<UserInformation avatar_url={avatar_url} name={name} url={url} location={location} />
+				<div className="UserRepos">
+					{ this.state.repos.length > 0 ?
+						<div className="ReposTitle">
+							<h1>Repositories</h1>
+						</div>
+						: null
+					}
+					{this.state.repos.map((repo) => {
+						return (
+							<UserRepo key={repo.id} name={repo.name} desc={repo.description} />
+						)
+					})}
+				</div>
+			</div>
 		}
 
       </div>
