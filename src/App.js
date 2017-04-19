@@ -32,10 +32,6 @@ class App extends Component {
 	    })
 	  })
   }
-  
-  getUserRepos() {
-
-  }
 
   render() {
 	const { avatar_url, name, url, location } = this.state.user;
